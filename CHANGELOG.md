@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## v0.0.3 2022-10-06
+
+Yes lots of releases today.
+
 - Set up for Heroku
 - Replace puma with unicorn to match production app
 - Faffing on with Heroku settings. It compiles, but isn't loading properly
