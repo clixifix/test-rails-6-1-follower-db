@@ -1,0 +1,4 @@
+release: .deploy/release
+web: bundle exec unicorn -c ./config/unicorn.rb
+
+webpack: ./bin/webpack-dev-server
