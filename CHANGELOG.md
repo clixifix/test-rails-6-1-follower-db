@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## v0.0.4 2022-10-10
+
+- enable the nginx server to get unicorn to display. Note that the https://github.com/heroku/heroku-buildpack-nginx build pack must be installed.
+
 ## v0.0.3 2022-10-06
 
 Yes lots of releases today.
