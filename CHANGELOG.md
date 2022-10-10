@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- to enable the nginx server. Note that the https://github.com/heroku/heroku-buildpack-nginx build pack must be installed.
+
 ## v0.0.3 2022-10-06
 
 Yes lots of releases today.
