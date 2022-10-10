@@ -81,7 +81,15 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  <% if ENV['FOLLOWERUSER_URL'].present? %>
+  primary:
+    <<: *default
+  follower:
+    url: <%= ENV['FOLLOWERUSER_URL'] %>
+    follower: true
+  <% else %>
   <<: *default
   database: test_rails_6_1_follower_db_production
   username: test_rails_6_1_follower_db
   password: <%= ENV['TEST_RAILS_6_1_FOLLOWER_DB_DATABASE_PASSWORD'] %>
+  <% end %>
