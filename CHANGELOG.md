@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## v0.0.5 2022-10-10
+
 - Added code based on main app for connecting to the database.
 
 ## v0.0.4 2022-10-10
