@@ -81,6 +81,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  primary:
+    <<: *default
+  follower:
+    url: <%= ENV['FOLLOWERUSER_URL'] %>
+    follower: true
   <<: *default
   database: test_rails_6_1_follower_db_production
   username: test_rails_6_1_follower_db
