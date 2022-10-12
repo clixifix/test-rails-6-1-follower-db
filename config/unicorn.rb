@@ -82,9 +82,7 @@ after_fork do |_server, _worker|
   # more details added from https://devcenter.heroku.com/articles/concurrency-and-database-connections
   if defined?(ActiveRecord::Base)
     config = Rails.application.config.database_configuration[Rails.env]
-    Rails.logger.error "¬¬ config 1: #{config}"
     config = config['primary'] if ENV.fetch('FOLLOWERUSER_URL', nil).present?
-    Rails.logger.error "¬¬ config 2: #{config}" if ENV.fetch('FOLLOWERUSER_URL', nil).present?
 
     ActiveRecord::Base.establish_connection(config)
   end
