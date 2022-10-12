@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Hotfix 2022-10-12
+
+- correct path.
+- Delete the postgres_write_handler and remove calling code. This appears to be the cause of the app blowing up.
+
 ## v0.0.5 2022-10-10
 
 - Added code based on main app for connecting to the database.
