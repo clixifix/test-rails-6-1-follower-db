@@ -14,6 +14,9 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+
+<% follower_url = ENV.fetch('FOLLOWERUSER_URL', nil) %>
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -80,14 +83,17 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+# Be warned: as a developer, the indentation offends me. However the yaml format is even more picky then an
+#            English teacher reading a note.
 production:
+  <% if follower_url.present? %>
   primary:
     <<: *default
   follower:
-    url: <%= ENV['FOLLOWERUSER_URL'] %>
-    follower: true
+    <<: *default
+    url: <%= follower_url %>
+    replica: true
+  <% else %>
   <<: *default
-  database: test_rails_6_1_follower_db_production
-  username: test_rails_6_1_follower_db
-  password: <%= ENV['TEST_RAILS_6_1_FOLLOWER_DB_DATABASE_PASSWORD'] %>
-  
+  <% end %>
