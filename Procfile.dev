@@ -1,4 +1,5 @@
 release: .deploy/release
 web: bundle exec unicorn -c ./config/unicorn.rb
 
+backgroundworker: bundle exec rails jobs:work
 webpack: ./bin/webpack-dev-server
