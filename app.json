@@ -7,6 +7,18 @@
       "url": "heroku-community/nginx"
     }
   ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    },
+    {
+      "generalworker": {
+        "quantity": 1,
+        "size": "standard-1x"
+      }
+    }
+  },
   "scripts": {
     "postdeploy": "bundle exec rake db:migrate"
   },
