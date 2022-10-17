@@ -15,3 +15,5 @@ rails _6.1.4.4_ new .  --database=postgresql
 ```
 
 You need to add the `https://github.com/heroku/heroku-buildpack-nginx` buildpack to enable the nginx reverse proxy. This is required for the Procfile.
+
+You need to enable a background jobs worker.

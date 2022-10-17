@@ -57,6 +57,27 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Update a specific article
+  def update_one
+    article_id = params[:article_id]
+    @article = Article.find(article_id)
+
+    ActiveRecord::Base.connected_to(role: :write) do
+      Delayed::Job.enqueue AddNotesJob.new @article.id
+    end
+
+    redirect_to @article
+  end
+
+  # Update all articles. The backend work handles looping through the articles
+  def update_all
+    ActiveRecord::Base.connected_to(role: :write) do
+      Delayed::Job.enqueue AddNotesJob.new nil
+    end
+
+    redirect_to articles_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
@@ -65,6 +86,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :article_id)
     end
 end
