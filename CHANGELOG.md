@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## v0.0.6 *BROKEN* 2022-10-17
+
 - Added links to start a background task adding text to the record (or all records).
 - The `Sorry Something Went Wrong` message popped up when the background job was started.
 - Added the wrapper for a write context, but yet again `Sorry something went wrong` reared it's ugly head.
