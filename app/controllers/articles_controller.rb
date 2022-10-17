@@ -62,14 +62,18 @@ class ArticlesController < ApplicationController
     article_id = params[:article_id]
     @article = Article.find(article_id)
 
-    Delayed::Job.enqueue AddNotesJob.new @article.id
+    ActiveRecord::Base.connected_to(role: writing) do
+      Delayed::Job.enqueue AddNotesJob.new @article.id
+    end
 
     redirect_to @article
   end
 
   # Update all articles. The backend work handles looping through the articles
   def update_all
-    Delayed::Job.enqueue AddNotesJob.new nil
+    ActiveRecord::Base.connected_to(role: writing) do
+      Delayed::Job.enqueue AddNotesJob.new nil
+    end
 
     redirect_to articles_path
   end
