@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added links to start a background task adding text to the record (or all records).
 - The `Sorry Something Went Wrong` message popped up when the background job was started.
 - Added the wrapper for a write context, but yet again `Sorry something went wrong` reared it's ugly head.
+- Switched the error messages on for production
+  - Currently getting 
+    - `ActiveRecord::ConnectionNotEstablished in ArticlesController#update_one`
+    - `No connection pool for 'ActiveRecord::Base' found for the 'write' role.`
+  - so I've missed something obvious.
 
 ## Hotfix 2022-10-12
 
